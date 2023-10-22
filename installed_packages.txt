@@ -1,0 +1,6 @@
+Package           Version
+----------------- -------
+autopep8          2.0.4
+coverage          7.3.2
+pip               23.0.
+pylint            3.0.1
