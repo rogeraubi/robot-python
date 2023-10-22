@@ -1,0 +1,4 @@
+autopep8==2.0.4
+coverage==7.3.2
+pipdeptree==2.13.0
+pylint==3.0.1
