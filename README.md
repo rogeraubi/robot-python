@@ -3,10 +3,10 @@
 ## Table of Contents
 - [Features](#Features)
 - [Installation](#installation)
-- [Usage](#usage)
+- [How does it work ](#How-does-it-work)
 - [Testing](#testing)
 - [Linting and Formatting](#linting-and-formatting)
-- [Contributing](#contributing)
+- [Contributing](#Contributing-(optional))
 - [License](#license)
 
 ## Features
@@ -86,7 +86,7 @@ Python advanced/test-ui-robot.py
 or 
 coverage run -m unittest advanced/test_toy_robot.py
 
-for example for  end to end test in the advanced/test-ui-robot.py
+for example for end to end test in the advanced/test-ui-robot.py
 def test_handle_commands(self):
         self.robot.place(0, 0, "NORTH")  # Place the robot first
         command = "MOVE\nREPORT"
