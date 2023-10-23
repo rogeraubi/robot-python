@@ -1,12 +1,11 @@
 import click
 from enum import Enum
 
-
 class Direction(Enum):
     """_summary_
 
     Args:
-        Enum (_type_): _description_
+        Enum (_type_): _description_  
     """
     NORTH = 1
     EAST = 2
@@ -17,7 +16,6 @@ class Direction(Enum):
 class ToyRobot:
     """_summary_
     """
-
     def __init__(self, table_size):
         self._x = None
         self._y = None
@@ -72,8 +70,7 @@ class ToyRobot:
             y (_type_): _description_
             facing (_type_): _description_
         """
-        if Direction.__members__.get(facing):
-            if self._is_valid_position(x, y):
+        if Direction.__members__.get(facing) and self._is_valid_position(x, y):
                 self._x, self._y, self._facing = x, y, Direction[facing]
 
     def report(self):
