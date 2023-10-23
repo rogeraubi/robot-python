@@ -84,7 +84,9 @@ To run unit tests and end-to-end test, use the following command:
 ```bash
 Python advanced/test-ui-robot.py 
 or 
-coverage run -m unittest advanced/test_toy_robot.py
+coverage run -m unittest advanced/test-ui-robot.py
+
+coverage report
 
 for example for end to end test in the advanced/test-ui-robot.py
 def test_handle_commands(self):

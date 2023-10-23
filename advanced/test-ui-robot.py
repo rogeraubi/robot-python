@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 from io import StringIO
-from uiRobot import ToyRobot, handle_commands, is_valid_command
+from .uiRobot import ToyRobot, handle_commands, is_valid_command
 
 class TestToyRobot(unittest.TestCase):
 
