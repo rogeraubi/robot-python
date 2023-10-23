@@ -43,8 +43,15 @@ Options:
   --table-size INTEGER  Size of the table (default: 5)
   --file FILENAME       Process commands from a file
   --help                Show this message and exit.
-  ```
+  
+command examples:
 
+python advanced/uiRobot.py   
+
+python advanced/uiRobot.py --file data/command.txt 
+
+data folder and its default command file: command.txt
+```
 ### User Interface
 
 1. **Enter Commands Directly**: Allows you to interact with the robot by entering commands directly through the console.
@@ -88,7 +95,8 @@ coverage run -m unittest advanced/test-ui-robot.py
 
 coverage report
 
-for example for end to end test in the advanced/test-ui-robot.py
+an example for end to end test delivered in the source file of advanced/test-ui-robot.py
+
 def test_handle_commands(self):
         self.robot.place(0, 0, "NORTH")  # Place the robot first
         command = "MOVE\nREPORT"
@@ -108,18 +116,13 @@ To check your code for linting issues, use the following command:
 pylint advanced/uiRobot.py
 ```
 
-To automatically fix some linting issues, use:
-
-```bash
-pylint --fix advanced/uiRobot.py
-```
-
 To format your code with autopep8
 
 ```bash
-autopep8 advanced/uiRobot.py 
+autopep8 --in-place advanced/uiRobot.py 
+
 ```
-It is recommended to directly use functions in the Vscode IDE if you can install plugins 
+It is recommended to directly use plugins for VScode IDE to fix the issues/errors to follow pylint guide  
 
 ## Contributing (optional)
 
@@ -132,10 +135,12 @@ Contributions to the ronyRobot project are welcome! If you want to contribute, p
 
 Please make sure to write clear and descriptive commit messages.
 
-Note: there is another basic python code for this applications and for standard by check/test 
+
+Note: there is another python code for this applications in the folder basic for old Python version
+
 basic/main.py and toy_robot.py and test file of test_toy_robot.py
 
-data folder and its default command.txt file 
+
 
 ## License
 
