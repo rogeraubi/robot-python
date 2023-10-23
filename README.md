@@ -82,7 +82,7 @@ The application performs command validation to ensure the commands entered are c
 To run unit tests and end-to-end test, use the following command:
 
 ```bash
-Python advanced/test-ui-robot.py 
+Python -m unittest advanced/test-ui-robot.py 
 or 
 coverage run -m unittest advanced/test-ui-robot.py
 
