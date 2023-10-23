@@ -1,5 +1,5 @@
 import unittest
-from toy_robot import ToyRobot
+from .toy_robot import ToyRobot
 
 class TestToyRobot(unittest.TestCase):
     def test_place_method(self):

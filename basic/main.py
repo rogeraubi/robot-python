@@ -2,7 +2,6 @@
 This module provides utilities for handling system-related tasks.
 It uses the 'sys' module for various system-level operations.
 """
-
 import sys
 from toy_robot import ToyRobot
 
