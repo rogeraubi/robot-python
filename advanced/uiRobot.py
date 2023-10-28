@@ -1,10 +1,7 @@
 import click
 from enum import Enum
-
-
 class Direction(Enum):
     """_summary_
-
     Args:
         Enum (_type_): _description_  
     """
@@ -12,27 +9,21 @@ class Direction(Enum):
     EAST = 2
     SOUTH = 3
     WEST = 4
-
-
 class ToyRobot:
     """_summary_
     """
-
     def __init__(self, table_size):
         self._x = None
         self._y = None
         self._facing = None
         self._table_size = table_size
-
     @property
     def is_placed(self):
         """_summary_
-
         Returns:
             _type_: _description_
         """
         return all((self._x is not None, self._y is not None, self._facing is not None))
-
     def _is_valid_position(self, x, y):
         return 0 <= x < self._table_size and 0 <= y < self._table_size
 
@@ -50,9 +41,7 @@ class ToyRobot:
     def _move(self):
         if not self.is_placed:
             return
-
         new_x, new_y = self._x, self._y
-
         if self._facing == Direction.NORTH:
             new_y += 1
         elif self._facing == Direction.EAST:
@@ -61,13 +50,11 @@ class ToyRobot:
             new_y -= 1
         elif self._facing == Direction.WEST:
             new_x -= 1
-
         if self._is_valid_position(new_x, new_y):
             self._x, self._y = new_x, new_y
 
     def place(self, x, y, facing):
         """_summary_
-
         Args:
             x (_type_): _description_
             y (_type_): _description_
@@ -75,7 +62,6 @@ class ToyRobot:
         """
         if Direction.__members__.get(facing) and self._is_valid_position(x, y):
             self._x, self._y, self._facing = x, y, Direction[facing]
-
     def report(self):
         """_summary_
 
@@ -85,14 +71,10 @@ class ToyRobot:
         if self.is_placed:
             return f"{self._x},{self._y},{self._facing.name}"
         return "Robot is not placed on the table."
-
-
 def is_valid_command(command):
     """_summary_
-
     Args:
         command (_type_): _description_
-
     Returns:
         _type_: _description_
     """
@@ -104,11 +86,8 @@ def is_valid_command(command):
         or command == "REPORT"
         or command.startswith("PLACE ")
     )
-
-
 def handle_commands(robot, command):
     """_summary_
-
     Args:
         robot (_type_): _description_
         command (_type_): _description_
@@ -131,14 +110,11 @@ def handle_commands(robot, command):
         click.echo(robot.report())
     else:
         click.echo('Invalid command')
-
-
 @click.command()
 @click.option("--table-size", type=int, default=5, help="Size of the table (default: 5)")
 @click.option("--file", type=click.File(), help="Process commands from a file")
 def main(table_size=5, file=None):
     """_summary_
-
     Args:
         table_size (int, optional): _description_. Defaults to 5.
         file (_type_, optional): _description_. Defaults to None.
@@ -158,9 +134,6 @@ def main(table_size=5, file=None):
             if command.strip().upper() == 'QUIT':
                 break
             handle_commands(robot, command)
-
     click.echo("Goodbye!")
-
-
 if __name__ == "__main__":
     main()

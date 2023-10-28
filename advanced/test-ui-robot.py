@@ -3,6 +3,7 @@ from unittest.mock import patch
 from io import StringIO
 from .uiRobot import ToyRobot, handle_commands, is_valid_command
 
+
 class TestToyRobot(unittest.TestCase):
 
     def setUp(self):
@@ -14,7 +15,8 @@ class TestToyRobot(unittest.TestCase):
 
     def test_invalid_place(self):
         self.robot.place(6, 0, "NORTH")
-        self.assertEqual(self.robot.report(), "Robot is not placed on the table.")
+        self.assertEqual(self.robot.report(),
+                         "Robot is not placed on the table.")
 
     def test_move(self):
         self.robot.place(0, 0, "NORTH")
@@ -32,7 +34,8 @@ class TestToyRobot(unittest.TestCase):
         self.assertEqual(self.robot.report(), "0,0,EAST")
 
     def test_report_unplaced(self):
-        self.assertEqual(self.robot.report(), "Robot is not placed on the table.")
+        self.assertEqual(self.robot.report(),
+                         "Robot is not placed on the table.")
 
     def test_valid_command(self):
         self.assertTrue(is_valid_command("MOVE"))
@@ -52,9 +55,10 @@ class TestToyRobot(unittest.TestCase):
         with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
             commands = command.split("\n")
             for command in commands:
-               handle_commands(self.robot, command)       
+                handle_commands(self.robot, command)
         self.assertEqual(self.robot.report(), "0,1,NORTH")
         self.assertEqual(mock_stdout.getvalue(), "0,1,NORTH\n")
+
 
 if __name__ == "__main__":
     unittest.main()
